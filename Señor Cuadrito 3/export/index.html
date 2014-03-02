@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Señor Cuadrito in Space</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no,width=640" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+
+		<style>
+            body, html {
+                border: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            #loading
+            {
+                z-index: 0;
+                width: 640px;
+                height: 832px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            #loading img
+            {
+                width: 100%;
+                height: 100%;
+            }
+            #canvas
+            {
+                z-index: -2;
+                display: block;
+                width: 640px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            #logocontainer
+            {
+                z-index: 0;
+                width: 250px;
+                height: 100px;
+                margin-right: auto;
+                margin-left: auto;
+                position: absolute;
+            }
+		</style>
+
+	</head>
+	
+	<body onload="go();" style="background-color:#000000">
+        <div id="content">
+            <div id="logocontainer"></div>
+            <div id="loading"><img src="./images/loading.png" /></div>
+		    <canvas id="canvas" width="640" height="832" style="background-color:#000000"></canvas>
+        </div>
+        <script src="fgl.js"></script>
+        <script src="http://code.createjs.com/easeljs-0.7.1.min.js"></script>
+        <script src="http://code.createjs.com/tweenjs-0.5.1.min.js"></script>
+        <script src="http://code.createjs.com/movieclip-0.7.1.min.js"></script>
+        <script src="http://code.createjs.com/preloadjs-0.4.1.min.js"></script>
+        <script src="http://code.createjs.com/soundjs-0.5.0.min.js"></script>
+        <script src="sr-cuadrito-3.min.js"></script>
+        <script>
+            var canvas, stage, exportRoot, loading, logocontainer;
+            var isFirefox, isIOS, isAndroid, isMac, isChrome, isSafari, isIPad;
+
+            canvas = document.getElementById("canvas");
+            loading= document.getElementById('loading');
+            logocontainer = document.getElementById('logocontainer');
+
+            isFirefox   = navigator.userAgent.toLowerCase().indexOf('firefox')  != -1;
+            isChrome    = navigator.userAgent.toLowerCase().indexOf('chrome')   != -1;
+            isIOS       = navigator.userAgent.toLowerCase().indexOf('iphone')   != -1||navigator.userAgent.toLowerCase().indexOf('ipad')!=-1||navigator.userAgent.toLowerCase().indexOf('ipod')!=-1
+            isAndroid   = navigator.userAgent.toLowerCase().indexOf('android')  != -1;
+            isMac       = navigator.userAgent.toLowerCase().indexOf('macintosh')!= -1;
+            isSafari    = navigator.userAgent.toLowerCase().indexOf('safari')   != -1;
+            isIPad      = navigator.userAgent.toLowerCase().indexOf('ipad')     != -1;
+
+/*            if (!isIOS&&!isAndroid)
+            {
+                loading.style.width = '320px';
+                loading.style.height= '416px';
+                canvas.style.width = '320px';
+                canvas.style.height= '416px';
+            }*/
+
+            function init() {
+
+                images = images||{};
+                var loader = new createjs.LoadQueue(false);
+                loader.installPlugin(createjs.Sound);
+                loader.addEventListener("fileload", handleFileLoad);
+                loader.addEventListener("complete", handleComplete);
+                loader.loadManifest(lib.properties.manifest);
+
+            }
+
+            function handleFileLoad(evt) {
+                if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+            }
+
+            function handleComplete() {
+                exportRoot = new lib.SrCuadrito_3();
+
+                stage = new createjs.Stage(canvas);
+                stage.addChild(exportRoot);
+                stage.update();
+                stage.enableMouseOver();
+
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", stage);
+                loading.setAttribute('style','display:none');
+                fgl.showAd();
+
+//                if (!isIOS&&!isAndroid)
+//                {
+//                    stage.canvas.width = 320;
+//                    stage.canvas.height= 416;
+//                    stage.width = 320;
+//                    stage.height= 416;
+//                    exportRoot.wrapper.scaleX = .5;
+//                    exportRoot.wrapper.scaleY = .5;
+//                }
+
+                onResize();
+            }
+
+            function playSound(id, loop) {
+                createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+            }
+            setTimeout(function(){window.scrollTo(0,1);}, 250);
+            function go ()
+            {
+
+                window.onresize = onResize;
+                onResize();
+                fgl.create(document.getElementById('canvas'), "com.wadafo.seniorcuadrito3");
+                fgl.onReady(function(){
+                    init();
+                });
+
+            }
+            function onResize()
+            {
+                window.scrollTo(0,1);
+            }
+        </script>
+	</body>
+</html>
