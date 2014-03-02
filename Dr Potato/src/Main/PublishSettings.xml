@@ -22,13 +22,13 @@
   <PublishProperties id="C6B9CB0C-C6DC-4FBC-9805-93E9EB37A444" name="JavaScript/HTML" enabled="true">
     <Property name="compactPaths">true</Property>
     <Property name="createjsNS">createjs</Property>
-    <Property name="default">true</Property>
+    <Property name="default">false</Property>
     <Property name="exportHTML">true</Property>
     <Property name="exportImages">true</Property>
     <Property name="exportLibs">true</Property>
     <Property name="exportSounds">true</Property>
-    <Property name="filename">Untitled-1.js</Property>
-    <Property name="frameBounds">false</Property>
+    <Property name="filename">../bin/Main.js</Property>
+    <Property name="frameBounds">true</Property>
     <Property name="hostedLibs">true</Property>
     <Property name="imagesNS">images</Property>
     <Property name="imagesPath">images/</Property>

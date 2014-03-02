@@ -3,7 +3,7 @@
           <DOMFolderItem name="assets" itemID="5312d295-000007a8"/>
      </folders>
      <media>
-          <DOMBitmapItem name="assets/wadafo-logo2.png" itemID="5312d2a5-000007a9" sourceExternalFilepath="./LIBRARY/assets/wadafo-logo2.png" sourceLastImported="1378621094" sourcePlatform="macintosh" externalFileCRC32="3256169825" externalFileSize="1770" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="assets/wadafo-logo2.png" bitmapDataHRef="M 1 1393742291.dat" frameRight="5960" frameBottom="1360"/>
+          <DOMBitmapItem name="assets/wadafo-logo2.png" itemID="5312d2a5-000007a9" sourceLastImported="1378621094" sourcePlatform="macintosh" externalFileCRC32="3256169825" externalFileSize="1770" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="assets/wadafo-logo2.png" bitmapDataHRef="M 1 1393742291.dat" frameRight="5960" frameBottom="1360"/>
      </media>
      <symbols>
           <Include href="Splash.xml" itemID="5312d28d-000007a0" lastModified="1393742480"/>
@@ -17,7 +17,7 @@
                                    <elements>
                                         <DOMSymbolInstance libraryItemName="Splash">
                                              <transformationPoint>
-                                                  <Point x="320" y="400"/>
+                                                  <Point/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
                                    </elements>
@@ -27,6 +27,9 @@
                </layers>
           </DOMTimeline>
      </timelines>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
      <PrinterSettings platform="macintosh"/>
      <publishHistory/>
 </DOMDocument>
