@@ -42,10 +42,12 @@ function showMenu()
 	menu.listener_play = menu.listener_play || menu.on('play', function ()
 	{
 		instance.removeChild(menu);
+		showBrand(false);
 		showGame();
 	});
 	menu.listener_moregames = menu.listener_moregames || menu.on('moregames', showMoregames);
 	instance.addChild(menu);
+	showBrand(true);
 	showAd();
 }
 function showAd()
