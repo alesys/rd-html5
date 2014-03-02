@@ -1,0 +1,110 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Menu" itemID="5313501e-000007b1" linkageExportForAS="true" linkageClassName="Menu" lastModified="1393777204">
+  <persistentData>
+    <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+  </persistentData>
+  <timeline>
+    <DOMTimeline name="Menu">
+      <layers>
+        <DOMLayer name="btn_moregames" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="btn_moregames" name="btn_moregames" symbolType="button">
+                  <matrix>
+                    <Matrix tx="204" ty="486"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="btn_play" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="btn_play" name="btn_play" symbolType="button">
+                  <matrix>
+                    <Matrix tx="254" ty="406"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="{TITULO}" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText fontRenderingMode="device" left="-63.9" width="390.1" height="76.05" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="188.85" ty="152.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>{TITULO}</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" size="48" bitmapSize="960" face="PressStart2P-Regular" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="background" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="2.16180419921875" d="2.70223999023438" tx="-203.3" ty="-129.85"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#003366"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1881 961S2|7802 961!7802 961|7802 6882!7802 6882|1881 6882!1881 6882|1881 961"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="JS" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Framescript language="JavaScript">
+                <script><![CDATA[var instance = this;
+
+this.btn_play.on('click', function ()
+{
+	instance.dispatchEvent( new createjs.Event('play') );
+});
+
+
+if ( fgl.crossPromotionEnabled )
+	this.btn_moregames.on('click', function ()
+	{
+		instance.dispatchEvent( new createjs.Event('moregames'));
+	});
+else
+	this.btn_moregames.visible = false;
+]]></script>
+              </Framescript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

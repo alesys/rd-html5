@@ -6,12 +6,123 @@
           <DOMBitmapItem name="assets/wadafo-logo2.png" itemID="5312d2a5-000007a9" sourceLastImported="1378621094" sourcePlatform="macintosh" externalFileCRC32="3256169825" externalFileSize="1770" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="assets/wadafo-logo2.png" bitmapDataHRef="M 1 1393742291.dat" frameRight="5960" frameBottom="1360"/>
      </media>
      <symbols>
-          <Include href="Splash.xml" itemID="5312d28d-000007a0" lastModified="1393742480"/>
+          <Include href="btn_moregames.xml" itemIcon="0" loadImmediate="false" itemID="53135104-000007c0" lastModified="1393774852"/>
+          <Include href="btn_play.xml" itemIcon="0" loadImmediate="false" itemID="531350fe-000007bc" lastModified="1393774846"/>
+          <Include href="Game.xml" itemID="531352da-000007ce" lastModified="1393775353"/>
+          <Include href="Menu.xml" itemID="5313501e-000007b1" lastModified="1393777204"/>
+          <Include href="Splash.xml" itemID="5312d28d-000007a0" lastModified="1393775574"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
-                    <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+                    <DOMLayer name="JS" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[var splash, menu, game, instance;
+var brand_img;
+
+instance = this;
+
+init();
+
+function init()
+{
+	splash = new lib.Splash();
+	splash.on('done', function ()
+	{
+		showMenu();
+		instance.removeChild(splash);
+	});
+	instance.addChild(splash);
+}
+function showMenu()
+{
+	menu = menu || new lib.Menu();
+	menu.listener_play = menu.listener_play || menu.on('play', function ()
+	{
+		instance.removeChild(menu);
+		showGame();
+	});
+	menu.listener_moregames = menu.listener_moregames || menu.on('moregames', showMoregames);
+	instance.addChild(menu);
+	showAd();
+}
+function showAd()
+{
+	if ( fgl && fgl.showAd ) 
+		fgl.showAd();
+}
+function showMoregames()
+{
+	if ( fgl && fgl.showMoreGames ) 
+		fgl.showMoreGames();
+}
+function showBrand(state)
+{
+	if(fgl.brandingEnabled && state)
+	{
+		brand_img = brand_img || document.createElement('img'); 
+		brand_img.src = brand_img.src || fgl.getBrandingLogo(); 
+		brand_img.onclick = fgl.handleBrandingClick;
+		logocontainer.appendChild(brand_img);
+		logocontainer.style.display = 'block';
+	}
+	else
+	{
+		logocontainer.style.display = 'none';
+	}
+}
+
+function showGame()
+{
+	game = new lib.Game();
+	game.on('done', function () 
+	{
+		instance.removeChild(game);
+		game = null;
+		showMenu();
+	});
+	instance.addChild(game);
+}]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Game" color="#FF4FFF" autoNamed="false" layerType="guide">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Game">
+                                             <matrix>
+                                                  <Matrix tx="1280"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Menu" color="#FF800A" autoNamed="false" layerType="guide">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Menu">
+                                             <matrix>
+                                                  <Matrix tx="640"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Splash" color="#9933CC" autoNamed="false" layerType="guide">
                          <frames>
                               <DOMFrame index="0" keyMode="9728">
                                    <elements>
