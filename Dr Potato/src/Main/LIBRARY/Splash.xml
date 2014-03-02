@@ -1,0 +1,34 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Splash" itemID="5312d28d-000007a0" linkageExportForAS="true" linkageClassName="Splash" lastModified="1393742480">
+  <timeline>
+    <DOMTimeline name="Splash">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape selected="true" isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="2.20611572265625" d="2.75767517089844" tx="-865" ty="-1489.55"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!7842 10803|13644 10803!13644 10803|13644 16605!13644 16605|7842 16605!7842 16605|7842 10803"/>
+                  </edges>
+                </DOMShape>
+                <DOMBitmapInstance selected="true" libraryItemName="assets/wadafo-logo2.png">
+                  <matrix>
+                    <Matrix tx="171" ty="266"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
